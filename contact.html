@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" href="assets/css/animate.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="assets/bootstarp/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/super-classes.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/mobile.css">
+      <title>Crael Developers | Contact</title>
+   </head>
+   <body>
+      <!-- navbar section -->
+      <!---header-and-banner-section-->
+      <div class="header-and-banner-con w-100 float-left position-relative">
+         <div class="header-and-banner-inner-con">
+            <header class="main-header">
+               <!--navbar-start-->
+               <div class="container pl-0 pr-0">
+                  <div class="header-con">
+                     <nav class="navbar navbar-expand-lg navbar-light p-0">
+                        <a class="navbar-brand p-0" href="index.html">
+                        <img src="assets/image/logo-img.png" alt="logo-img" class="img-fluid">
+                        </a>
+                        <button id="hamburger-menu" class="hamburger-menu" aria-label="Toggle Menu">
+                          <span class="bar"></span>
+                          <span class="bar"></span>
+                          <span class="bar"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                           <button id="close-menu" class="close-menu d-lg-none" aria-label="Close Menu">
+                             <i class="fas fa-times"></i>
+                           </button>
+                           <ul class="navbar-nav ml-auto">
+                              <li class="nav-item">
+                                 <a class="nav-link p-0" href="index.html">Home</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link p-0" href="services.html">Services</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link p-0 active" href="about.html">About</a>
+                              </li>
+                           </ul>
+                           <div class="d-inline-block contact">
+                              <a href="contact.html" class="is-active">Contact</a>
+                           </div>
+                           <div class="d-inline-block dark-mode-toggle">
+                             <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                                <i class="fas fa-moon"></i>
+                             </button>
+                          </div>
+                          <style>
+                          .dark-mode-toggle {
+                              margin-left: 15px;
+                          }
+                          #dark-mode-toggle {
+                              background: none;
+                              border: none;
+                              cursor: pointer;
+                              font-size: 1.5rem;
+                              color: var(--primary-color);
+                              transition: color 0.3s ease;
+                              outline: none;
+                          }
+                          #dark-mode-toggle:hover {
+                              color: var(--accent);
+                          }
+                          body.dark-mode #dark-mode-toggle {
+                              color: var(--accent);
+                          }
+                          body.dark-mode #dark-mode-toggle:hover {
+                              color: var(--primary-color);
+                          }
+                          #dark-mode-toggle:focus {
+                              outline: none;
+                          }
+                          .hamburger-menu {
+                            display: none;
+                            flex-direction: column;
+                            justify-content: space-around;
+                            width: 2rem;
+                            height: 2rem;
+                            background: transparent;
+                            border: none;
+                            cursor: pointer;
+                            padding: 0;
+                            z-index: 10;
+                          }
+                          .hamburger-menu:focus {
+                            outline: none;
+                          }
+                          .bar {
+                            width: 2rem;
+                            height: 0.25rem;
+                            background: var(--primary-color);
+                            border-radius: 10px;
+                            transition: all 0.3s linear;
+                            position: relative;
+                            transform-origin: 1px;
+                          }
+                          @media (max-width: 768px) {
+                            .hamburger-menu {
+                              display: flex;
+                            }
+                            .navbar-collapse {
+                              position: fixed;
+                              top: 0;
+                              left: 0;
+                              width: 100%;
+                              height: 50vh;
+                              background: rgba(255, 255, 255, 0.7);
+                              backdrop-filter: blur(10px);
+                              display: flex;
+                              flex-direction: column;
+                              align-items: flex-start;
+                              justify-content: flex-start;
+                              transform: translateY(-100%);
+                              transition: transform 0.3s ease-in-out;
+                              padding: 60px 20px 20px;
+                              border-bottom-left-radius: 20px;
+                              border-bottom-right-radius: 20px;
+                            }
+                            .navbar-collapse.show {
+                              transform: translateY(0);
+                            }
+                            .navbar-nav {
+                              flex-direction: column;
+                              align-items: flex-start;
+                              width: 100%;
+                            }
+                            .nav-item {
+                              margin: 1rem 0;
+                              width: 100%;
+                              text-align: left;
+                            }
+                            .nav-link {
+                              font-size: 1.2rem;
+                              padding: 0.5rem 0;
+                            }
+                            .close-menu {
+                              position: absolute;
+                              top: 20px;
+                              right: 20px;
+                              background: none;
+                              border: none;
+                              font-size: 2rem;
+                              color: var(--primary-color);
+                              cursor: pointer;
+                            }
+                            .dark-mode-toggle {
+                              margin-top: 1rem;
+                              align-self: flex-start;
+                            }
+                          }
+                          /* Dark mode styles */
+                          body.dark-mode {
+                              background-color: #1a1a1a00;
+                              color: #f0f0f0;
+                          }
+ 
+                          body.dark-mode .header-and-banner-con {
+                              background-color: #2a2a2a00;
+                          }
+ 
+                          body.dark-mode .navbar-light .navbar-nav .nav-link {
+                              color: #f0f0f0;
+                          }
+ 
+                          body.dark-mode .navbar-light .navbar-nav .nav-link:hover,
+                          body.dark-mode .navbar-light .navbar-nav .nav-link:focus {
+                              color: #ffffff;
+                          }
+ 
+                          body.dark-mode .contact a {
+                              background-color: #ffc107;
+                              color: #000000;
+                          }
+ 
+                          body.dark-mode .contact a:hover {
+                              background-color: #e0a800;
+                          }
+ 
+                          body.dark-mode .navbar-collapse {
+                              background: transparent;
+                          }
+ 
+                          body.dark-mode .close-menu {
+                              color: #f0f0f0;
+                          }
+ 
+                          body.dark-mode .hamburger-menu .bar {
+                              background-color: #f0f0f0;
+                          }
+ 
+                          @media (max-width: 991px) {
+                              body.dark-mode .navbar-collapse {
+                                  background: transparent;
+                              }
+                              body.dark-mode .nav-link {
+                                  color: #f0f0f0;
+                                  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0);
+                              }
+                          }
+                          
+                          .navbar-light .navbar-nav .nav-link.active {
+                              color: #007bff;
+                          }
+                          
+                          body.dark-mode .navbar-light .navbar-nav .nav-link.active {
+                              color: #007bff;
+                          }
+                          </style>
+                          <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                              const darkModeToggle = document.getElementById('dark-mode-toggle');
+                              const body = document.body;
+                              const icon = darkModeToggle.querySelector('i');
+                              const hamburger = document.querySelector('.hamburger-menu');
+                              const navbarCollapse = document.querySelector('.navbar-collapse');
+                              const closeMenu = document.getElementById('close-menu');
+ 
+                              // Check for saved dark mode preference
+                              if (localStorage.getItem('darkMode') === 'enabled') {
+                                  enableDarkMode();
+                              } else {
+                                  disableDarkMode();
+                              }
+ 
+                              darkModeToggle.addEventListener('click', () => {
+                                  if (body.classList.contains('dark-mode')) {
+                                      disableDarkMode();
+                                  } else {
+                                      enableDarkMode();
+                                  }
+                              });
+ 
+                              function enableDarkMode() {
+                                  body.classList.add('dark-mode');
+                                  icon.classList.replace('fa-moon', 'fa-sun');
+                                  localStorage.setItem('darkMode', 'enabled');
+                                  applyDarkModeToAboutPageProcessAndFooter();
+                              }
+ 
+                              function disableDarkMode() {
+                                  body.classList.remove('dark-mode');
+                                  icon.classList.replace('fa-sun', 'fa-moon');
+                                  localStorage.setItem('darkMode', 'disabled');
+                              }
+ 
+                              // Hamburger menu functionality
+                              hamburger.addEventListener('click', () => {
+                                  hamburger.classList.toggle('active');
+                                  navbarCollapse.classList.toggle('show');
+                              });
+ 
+                              // Close menu when close button is clicked
+                              closeMenu.addEventListener('click', () => {
+                                  hamburger.classList.remove('active');
+                                  navbarCollapse.classList.remove('show');
+                              });
+ 
+                              // Close menu when a link is clicked
+                              document.querySelectorAll('.nav-link').forEach(link => {
+                                  link.addEventListener('click', () => {
+                                      hamburger.classList.remove('active');
+                                      navbarCollapse.classList.remove('show');
+                                  });
+                              });
+ 
+                              function applyDarkModeToAboutPageProcessAndFooter() {
+                                  if (document.body.classList.contains('dark-mode')) {
+                                      const processSection = document.querySelector('.about-process-sec') || document.querySelector('#about-process');
+                                      const footer = document.querySelector('.weight-footer-con');
+                                      
+                                      [processSection, footer].forEach(section => {
+                                          if (section) {
+                                              section.style.setProperty('background-color', section === footer ? '#1e1e1e' : '#121212', 'important');
+                                              const elements = section.querySelectorAll('*');
+                                              elements.forEach(el => {
+                                                  el.style.setProperty('background-color', section === footer ? '#1e1e1e' : '#121212', 'important');
+                                                  el.style.setProperty('color', '#e0e0e0', 'important');
+                                              });
+                                          }
+                                      });
+                                  }
+                              }
+ 
+                              // Call this function when dark mode is toggled
+                              darkModeToggle.addEventListener('click', applyDarkModeToAboutPageProcessAndFooter);
+ 
+                              // Also call it on page load if dark mode is already active
+                              applyDarkModeToAboutPageProcessAndFooter();
+                          });
+                          // Highlight current page and add animations to hamburger menu links
+                          document.addEventListener('DOMContentLoaded', () => {
+                              const navLinks = document.querySelectorAll('.nav-link');
+                              const currentPage = window.location.pathname.split('/').pop();
+ 
+                              navLinks.forEach(link => {
+                                  // Highlight current page
+                                  if (link.getAttribute('href') === currentPage) {
+                                      link.classList.add('active');
+                                      link.style.color = '#007bff'; // Adjust color as needed
+                                  }
+ 
+                                  // Add hover animation
+                                  link.addEventListener('mouseenter', () => {
+                                      link.style.transition = 'all 0.3s ease';
+                                      link.style.transform = 'translateX(10px)';
+                                      link.style.color = '#0056b3'; // Adjust color as needed
+                                  });
+ 
+                                  link.addEventListener('mouseleave', () => {
+                                      link.style.transition = 'all 0.3s ease';
+                                      link.style.transform = 'translateX(0)';
+                                      link.style.color = link.classList.contains('active') ? '#007bff' : '';
+                                  });
+ 
+                                  // Add click animation
+                                  link.addEventListener('click', (e) => {
+                                      e.preventDefault();
+                                      link.style.transition = 'all 0.2s ease';
+                                      link.style.transform = 'scale(0.95)';
+                                      setTimeout(() => {
+                                          link.style.transform = 'scale(1)';
+                                          window.location.href = link.getAttribute('href');
+                                      }, 200);
+                                  });
+                              });
+                          });  
+                         </script> 
+                        </div>
+                     </nav>
+                  </div>
+               </div>
+            </header>
+         </div>
+       </div>  
+      <!-- navbar section -->
+      <!-- contact section -->
+
+      <section class="contact-section w-100 float-left position-relative" id="Contact">
+         <div class="container">
+            <div class="contact-title-sec text-center" data-aos="fade-up" data-aos-duration="800">
+               <h2>Let's Create Something Extraordinary</h2>
+            </div>
+            <div class="row align-items-center">
+               <div class="col-lg-5 col-md-12">
+                  <div class="contact-left-sec" data-aos="fade-right" data-aos-duration="1000">
+                     <h3>Transform Your Vision into Reality</h3>
+                     <p>At Crael Developers, we're not just building websites; we're crafting digital experiences that leave a lasting impression. Let's collaborate and bring your ideas to life.</p>
+                     <ul class="list-unstyled contact-details">
+                        <li>
+                           <i class="fas fa-map-marker-alt"></i>
+                           <p>1 Infinite Loop, Cupertino, CA 95014</p>
+                        </li>
+                        <li>
+                           <i class="fas fa-phone-alt"></i>
+                           <p>+1 (800) 275-2273</p>
+                        </li>
+                        <li>
+                           <i class="fas fa-envelope"></i>
+                           <p>hello@craeldevelopers.com</p>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <div class="col-lg-7 col-md-12">
+                  <div class="contact-right-sec" data-aos="fade-left" data-aos-duration="1000">
+                     <form id="contactpage" class="contact-form blog-model-form">
+                        <div class="row">
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">    
+                                 <input type="text" placeholder="Name" name="name" id="name" required> 
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">
+                                 <input type="email" placeholder="Email" name="email" id="email" required>
+                                 <small class="form-text text-muted"></small>
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">    
+                                 <input type="tel" placeholder="Phone" name="phone" id="phone" required> 
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">    
+                                 <input type="text" placeholder="Subject" name="subject" id="subject"> 
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="form-group mb-0">    
+                                 <textarea placeholder="Message" rows="3" name="message" id="message" required></textarea>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="submit" id="submit" class="appointment-btn">Submit</button>
+                        <div id="form_result"></div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!-- contact section -->
+      <!-- footer section -->
+      <div class="w-100 float-left weight-footer-con position-relative">
+         <div class="container">
+            <div class="weight-footer-content text-center wow fadeInUp">
+               <figure class="">
+                  <img src="assets/image/footer-logo.png" alt="footer-logo" class="img-fluid">
+               </figure>
+               <div class="footer-navbar">
+                  <ul class="list-unstyled">
+                     <li class="d-inline-block border-left-0 pl-0"><a href="index.html#home">Home</a></li>
+                     <li class="d-inline-block"><a href="about.html">About</a></li>
+                     <li class="d-inline-block"><a href="services.html">Services</a></li>
+                     <li class="d-inline-block"><a href="index.html#testimonials">Blog</a></li>
+                     <li class="d-inline-block pr-0"><a href="contact.html">Contact</a></li>
+                  </ul>
+               </div>
+               <div class="footer-social-icon">
+                  <ul class="mb-0">
+                     <li class="d-inline-block">
+                        <a href="https://www.x.com/sawyergathoya/"><i class="fab fa-twitter d-flex align-items-center justify-content-center"></i></a>
+                     </li>
+                     <li class="d-inline-block">
+                        <a href="https://www.instagram.com/crael.developers/"><i class="fab fa-instagram d-flex align-items-center justify-content-center"></i></a>
+                     </li>
+                     <li class="d-inline-block">
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in d-flex align-items-center justify-content-center"></i></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="copy-right-content text-center">
+               <p class="mb-0">Copyright 2022 Crael Developers | All Rights Reserved.</p>
+            </div>
+         </div>
+      </div>
+      <a id="button"></a>
+      <script src="assets/js/wow.js"></script>
+      <script>
+         new WOW().init();
+      </script>
+      <script src="assets/js/jquery-3.6.0.min.js"> </script>
+      <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+      <script src="assets/js/popper.min.js"> </script>
+      <script src="assets/js/bootstrap.min.js"> </script>
+      <script src="assets/js/custom-script.js"> </script>
+      <script src="assets/js/contact-form.js"></script>
+      <script>
+         filterSelection("all")
+         function filterSelection(c) {
+         var x, i;
+         x = document.getElementsByClassName("filterDiv");
+         if (c == "all") c = "";
+         for (i = 0; i < x.length; i++) {
+         w3RemoveClass(x[i], "show");
+         if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+         }
+         }
+         
+         function w3AddClass(element, name) {
+         var i, arr1, arr2;
+         arr1 = element.className.split(" ");
+         arr2 = name.split(" ");
+         for (i = 0; i < arr2.length; i++) {
+         if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+         }
+         }
+         
+         function w3RemoveClass(element, name) {
+         var i, arr1, arr2;
+         arr1 = element.className.split(" ");
+         arr2 = name.split(" ");
+         for (i = 0; i < arr2.length; i++) {
+         while (arr1.indexOf(arr2[i]) > -1) {
+         arr1.splice(arr1.indexOf(arr2[i]), 1);     
+         }
+         }
+         element.className = arr1.join(" ");
+         }
+         
+         // Add active class to the current button (highlight it)
+         var btnContainer = document.getElementById("myBtnContainer");
+         if (btnContainer) {
+             var btns = btnContainer.getElementsByClassName("btn");
+             for (var i = 0; i < btns.length; i++) {
+                 btns[i].addEventListener("click", function(){
+                     var current = document.getElementsByClassName("active");
+                     if (current.length > 0) {
+                         current[0].className = current[0].className.replace(" active", "");
+                     }
+                     this.className += " active";
+                 });
+             }
+         }
+      </script>
+      <script>
+        var btn = $('#button');
+        
+        $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+        } else {
+        btn.removeClass('show');
+        }
+        });
+        
+        btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '300');
+        });
+        
+     </script>
+    </body>
+</html>

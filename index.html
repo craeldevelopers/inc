@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="zxx">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+      <link rel="stylesheet" href="assets/css/animate.css">
+      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="assets/bootstarp/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/css/super-classes.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/mobile.css">
+      <title>Crael Developers | Home</title>
+   </head>
+   <body>
+      <!---header-and-banner-section-->
+      <div class="header-and-banner-con w-100 float-left position-relative">
+         <div class="header-and-banner-inner-con">
+            <header class="main-header">
+               <!--navbar-start-->
+               <div class="container pl-0 pr-0">
+                  <div class="header-con">
+                     <nav class="navbar navbar-expand-lg navbar-light p-0">
+                        <a class="navbar-brand p-0" href="index.html">
+                        <img src="assets/image/logo-img.png" alt="logo-img" class="img-fluid">
+                        </a>
+                        <button id="hamburger-menu" class="navbar-toggler p-0 collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                           <ul class="navbar-nav ml-auto">
+                              <li class="nav-item active pl-0">
+                                 <a class="nav-link p-0 is-active" href="index.html">Home<span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link p-0" href="services.html">Services</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link p-0" href="about.html">About</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link p-0" href="#testimonials">Testimonials</a>
+                              </li>
+                           </ul>
+                           <div class="d-inline-block contact">
+                              <a href="contact.html">Contact</a>
+                           </div>
+                            <!--dark mode-->
+                           <div class="d-inline-block dark-mode-toggle">
+                              <button id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                                 <i class="fas fa-moon"></i>
+                              </button>
+                           </div>
+                           <style>
+                           .dark-mode-toggle {
+                               margin-left: 15px;
+                           }
+                           #dark-mode-toggle {
+                               background: none;
+                               border: none;
+                               cursor: pointer;
+                               font-size: 1.5rem;
+                               color: var(--primary-color);
+                               transition: color 0.3s ease;
+                               outline: none;
+                           }
+                           #dark-mode-toggle:hover {
+                               color: var(--accent);
+                           }
+                           .dark-mode #dark-mode-toggle {
+                               color: var(--accent);
+                           }
+                           .dark-mode #dark-mode-toggle:hover {
+                               color: var(--primary-color);
+                           }
+                           #dark-mode-toggle:focus {
+                               outline: none;
+                           }
+                        
+                         .dark-mode-toggle {
+                             margin-left: 15px;
+                         }
+                         #dark-mode-toggle {
+                             background: none;
+                             border: none;
+                             cursor: pointer;
+                             font-size: 1.5rem;
+                             color: var(--primary-color);
+                             transition: color 0.3s ease;
+                             outline: none;
+                         }
+                         #dark-mode-toggle:hover {
+                             color: var(--accent);
+                         }
+                         body.dark-mode #dark-mode-toggle {
+                             color: var(--accent);
+                         }
+                         body.dark-mode #dark-mode-toggle:hover {
+                             color: var(--primary-color);
+                         }
+                         #dark-mode-toggle:focus {
+                             outline: none;
+                         }
+                         </style>
+                         <script>
+                         document.addEventListener('DOMContentLoaded', function() {
+                             const darkModeToggle = document.getElementById('dark-mode-toggle');
+                             const body = document.body;
+                             const icon = darkModeToggle.querySelector('i');
+
+                             // Check for saved dark mode preference
+                             if (localStorage.getItem('darkMode') === 'enabled') {
+                                 enableDarkMode();
+                             } else {
+                                 disableDarkMode();
+                             }
+
+                             darkModeToggle.addEventListener('click', () => {
+                                 if (body.classList.contains('dark-mode')) {
+                                     disableDarkMode();
+                                 } else {
+                                     enableDarkMode();
+                                 }
+                             });
+
+                             function enableDarkMode() {
+                                 body.classList.add('dark-mode');
+                                 icon.classList.replace('fa-moon', 'fa-sun');
+                                 icon.style.color = '#FFD700'; // Set sun icon to yellow
+                                 localStorage.setItem('darkMode', 'enabled');
+                                 applyDarkModeToSections();
+                             }
+
+                             function disableDarkMode() {
+                                 body.classList.remove('dark-mode');
+                                 icon.classList.replace('fa-sun', 'fa-moon');
+                                 icon.style.color = ''; // Reset icon color
+                                 localStorage.setItem('darkMode', 'disabled');
+                                 removeDarkModeFromSections();
+                             }
+
+                             // Sync with index.html
+                             // Apply the theme across all pages
+                             const currentTheme = localStorage.getItem('darkMode');
+                             if (currentTheme === 'enabled') {
+                                 enableDarkMode();
+                             } else {
+                                 disableDarkMode();
+                             }
+
+                             function applyDarkModeToSections() {
+                                 const header = document.querySelector('header');
+                                 const contactSection = document.querySelector('.contact-section') || document.querySelector('#Contact');
+                                 const footer = document.querySelector('.weight-footer-con');
+                                 const serviceCards = document.querySelectorAll('.service-box');
+                                 
+                                 [header, contactSection, footer].forEach(section => {
+                                     if (section) {
+                                         section.style.setProperty('background-color', '#1e1e1e', 'important');
+                                         const elements = section.querySelectorAll('*:not(.is-active)');
+                                         elements.forEach(el => {
+                                             el.style.setProperty('background-color', '#1e1e1e', 'important');
+                                             el.style.setProperty('color', '#e0e0e0', 'important');
+                                         });
+                                     }
+                                 });
+
+                                 // Apply dark mode to service cards
+                                 serviceCards.forEach(card => {
+                                     card.style.setProperty('background-color', '#2c2c2c', 'important');
+                                     card.style.setProperty('color', '#e0e0e0', 'important');
+                                 });
+
+                                 // Ensure the active page link remains visible
+                                 const activeLink = document.querySelector('.is-active');
+                                 if (activeLink) {
+                                     activeLink.style.setProperty('color', '#4dabf7', 'important');
+                                 }
+                             }
+
+                             function removeDarkModeFromSections() {
+                                 const header = document.querySelector('header');
+                                 const contactSection = document.querySelector('.contact-section') || document.querySelector('#Contact');
+                                 const footer = document.querySelector('.weight-footer-con');
+                                 const serviceCards = document.querySelectorAll('.service-box');
+                                 
+                                 [header, contactSection, footer].forEach(section => {
+                                     if (section) {
+                                         section.style.removeProperty('background-color');
+                                         const elements = section.querySelectorAll('*');
+                                         elements.forEach(el => {
+                                             el.style.removeProperty('background-color');
+                                             el.style.removeProperty('color');
+                                         });
+                                     }
+                                 });
+
+                                 // Remove dark mode from service cards
+                                 serviceCards.forEach(card => {
+                                     card.style.removeProperty('background-color');
+                                     card.style.removeProperty('color');
+                                 });
+                             }
+
+                             // Call this function when dark mode is toggled
+                             darkModeToggle.addEventListener('click', () => {
+                                 if (body.classList.contains('dark-mode')) {
+                                     applyDarkModeToSections();
+                                 } else {
+                                     removeDarkModeFromSections();
+                                 }
+                             });
+
+                             // Also call it on page load if dark mode is already active
+                             if (body.classList.contains('dark-mode')) {
+                                 applyDarkModeToSections();
+                             }
+
+                             // Remove blue hover effect from services section
+                             const servicesSection = document.querySelector('.our-services-con');
+                             if (servicesSection) {
+                                 servicesSection.style.setProperty('pointer-events', 'none', 'important');
+                             }
+                         });
+                         </script>
+                     </nav>
+                  </div>
+               </div>
+               <!--navbar-end-->
+            </header>
+            <section class="banner-main-con" id="home">
+               <div class="container pl-0 pr-0">
+                  <!--banner-start-->
+                  <div class="footer-social-icon banner-social-icon mb-0">
+                     <ul class="mb-0 list-unstyled">
+                        <li class="">
+                           <a href="https://www.x.com/"><i class="fab fa-twitter d-flex align-items-center justify-content-center"></i></a>
+                        </li>
+                        <li class="mt-3 mb-3">
+                           <a href="https://www.instagram.com/crael.developers/"><i class="fab fa-instagram d-flex align-items-center justify-content-center ml-0 mr-0 "></i></a>
+                        </li>
+                        <li class="">
+                           <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in d-flex align-items-center justify-content-center"></i></a>
+                        </li>
+                     </ul>
+                  </div>
+                  <div class="banner-con text-lg-left text-center">
+                     <div class="row">
+                        <div class="col-lg-7 col-sm-12 d-flex justify-content-center flex-column">
+                           <div class="banner-left-con wow slideInLeft">
+                              <div class="banner-heading">
+                                 <h2 class="animated-heading">Hello, We're</h2>                                 
+                                 <div class="dynamic-txts-wrapper">
+                                    <ul class="dynamic-txts">
+                                       <li><h1>Crael Developers</h1></li>
+                                       <li><h1>Creative Minds</h1></li>
+                                       <li><h1>Innovative Solutions</h1></li>
+                                       <li><h1>Programming Experts</h1></li>
+                                    </ul>
+                                 </div>
+                                 <p>We are Crael Developers, a web development company<br>
+                                    dedicated to providing innovative solutions and<br>
+                                    creative designs to meet your needs.
+                                 </p>
+                              </div>
+                              <div class="banner-btn generic-btn d-inline-block">
+                                 <a href="#Contact">Hire Us</a>
+                              </div>
+                              <a href="#about-con" class="See-btn">About us</a>
+                           </div>
+                        </div>
+                        <div class="col-lg-5 col-sm-12">
+                           <div class="banner-right-con position-relative wow slideInRight" id="banner-right-con">
+                              <div class="animated-gif-mockup futuristic-mockup">
+                                 <img src="assets/image/crael_mockup.gif" 
+                                      alt="Animated mockup of Crael Developers projects" 
+                                      class="img-fluid w-100 mockup-image"
+                                      style="max-width: 100%; height: auto;">
+                                 <div class="holographic-overlay"></div>
+                                 <div class="glitch-effect"></div>
+                              </div>
+                              <div class="best-award-con d-inline-block wow bounceInUp" data-wow-duration="1s" data-wow-delay="1s">
+                                 <div class="best-award-inner-con">
+                                    <figure class="mb-0">
+                                       <img src="assets/image/cup-img.png" alt="cup-img" class="img-fluid">
+                                    </figure>
+                                    <div class="best-award-title">
+                                       <p class="mb-0">Join US<br>
+                                          Today.
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="best-award-con d-inline-block happy-con wow bounceInUp " data-wow-duration="1s" data-wow-delay="1s">
+                                 <div class="best-award-inner-con text-center">
+                                    <figure>
+                                       <img src="assets/image/admin-icon.png" alt="admin-icon" class="img-fluid">
+                                    </figure>
+                                    <div class="best-award-title d-inline-block ml-0">
+                                       <p class="mb-0 d-inline-block count">20</p>
+                                       <p class="mb-0 d-inline-block">+</p>
+                                       <span class="d-block">Happy<br>
+                                       Customers</span>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="cursor"></div>
+                              <div class="cursor2"></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <style>
+                    .futuristic-mockup {
+                      position: relative;
+                      overflow: hidden;
+                      border-radius: 20px;
+                      box-shadow: 0 0 30px rgba(0, 123, 255, 0.3);
+                    }
+                    .mockup-image {
+                      transition: transform 0.3s ease;
+                    }
+                    .futuristic-mockup:hover .mockup-image {
+                      transform: scale(1.05);
+                    }
+                    .holographic-overlay {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      right: 0;
+                      bottom: 0;
+                      background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+                      pointer-events: none;
+                    }
+                    .glitch-effect {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      height: 100%;
+                      background: url('assets/image/crael_mockup.gif');
+                      background-size: cover;
+                      opacity: 0;
+                      mix-blend-mode: overlay;
+                      animation: glitch 5s infinite;
+                    }
+                    @keyframes glitch {
+                      0% { opacity: 0; transform: translate(0); }
+                      1% { opacity: 0.1; transform: translate(-2px, 2px); }
+                      2% { opacity: 0; transform: translate(0); }
+                      99% { opacity: 0; transform: translate(0); }
+                      100% { opacity: 0.1; transform: translate(2px, -2px); }
+                    }
+                    .animated-heading {
+                      opacity: 0;
+                      transform: translateY(20px);
+                      animation: fadeInUp 1s ease forwards;
+                      font-size: calc(1.5rem + 1vw);
+                    }
+                    @keyframes fadeInUp {
+                      to {
+                        opacity: 1;
+                        transform: translateY(0);
+                      }
+                    }
+                    .dynamic-txts-wrapper {
+                      height: 90px;
+                      line-height: 90px;
+                      overflow: hidden;
+                      position: relative;
+                    }
+                    .dynamic-txts {
+                      margin: 0;
+                      padding: 0;
+                      list-style: none;
+                    }
+                    .dynamic-txts li {
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      width: 100%;
+                      opacity: 0;
+                      animation: slide-up 12s linear infinite 0s;
+                    }
+                    .dynamic-txts li:nth-child(2) {
+                      animation-delay: 3s;
+                    }
+                    .dynamic-txts li:nth-child(3) {
+                      animation-delay: 6s;
+                    }
+                    .dynamic-txts li:nth-child(4) {
+                      animation-delay: 9s;
+                    }
+                    @keyframes slide-up {
+                      0% { opacity: 0; transform: translateY(90px); }
+                      5% { opacity: 1; transform: translateY(0); }
+                      25% { opacity: 1; transform: translateY(0); }
+                      30% { opacity: 0; transform: translateY(-90px); }
+                      100% { opacity: 0; transform: translateY(-90px); }
+                    }
+                    .dynamic-txts li h1 {
+                      margin: 0;
+                      font-size: calc(2rem + 1.5vw);
+                      white-space: nowrap;
+                    }
+                    @media (max-width: 768px) {
+                      .dynamic-txts-wrapper {
+                        height: 60px;
+                        line-height: 60px;
+                      }
+                      .dynamic-txts li h1 {
+                        font-size: calc(1.5rem + 1vw);
+                      }
+                      @keyframes slide-up {
+                        0% { opacity: 0; transform: translateY(60px); }
+                        5% { opacity: 1; transform: translateY(0); }
+                        25% { opacity: 1; transform: translateY(0); }
+                        30% { opacity: 0; transform: translateY(-60px); }
+                        100% { opacity: 0; transform: translateY(-60px); }
+                      }
+                    }
+                  </style>
+                  <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                      const mockup = document.querySelector('.futuristic-mockup');
+                      
+                      mockup.addEventListener('mousemove', function(e) {
+                        const { left, top, width, height } = this.getBoundingClientRect();
+                        const x = (e.clientX - left) / width;
+                        const y = (e.clientY - top) / height;
+                        
+                        this.style.setProperty('--mouse-x', x);
+                        this.style.setProperty('--mouse-y', y);
+                        
+                        const glowX = -10 + x * 20;
+                        const glowY = -10 + y * 20;
+                        this.style.boxShadow = `${glowX}px ${glowY}px 30px rgba(0, 123, 255, 0.3)`;
+                      });
+                      
+                      mockup.addEventListener('mouseleave', function() {
+                        this.style.boxShadow = '0 0 30px rgba(0, 123, 255, 0.3)';
+                      });
+
+                      // Animated heading
+                      const animatedHeading = document.querySelector('.animated-heading');
+                      animatedHeading.style.opacity = '0';
+                      animatedHeading.style.transform = 'translateY(20px)';
+                      setTimeout(() => {
+                        animatedHeading.style.transition = 'opacity 1s, transform 1s';
+                        animatedHeading.style.opacity = '1';
+                        animatedHeading.style.transform = 'translateY(0)';
+                      }, 500);
+
+                      // Ensure dynamic text animation restarts on window resize
+                      window.addEventListener('resize', function() {
+                        const dynamicTxts = document.querySelector('.dynamic-txts');
+                        dynamicTxts.style.animation = 'none';
+                        dynamicTxts.offsetHeight; // Trigger reflow
+                        dynamicTxts.style.animation = null;
+                      });
+                    });
+                  </script>
+                  <!--banner-end-->
+               </div>
+            </section>
+         </div>
+      </div>
+      <!---header-and-banner-section-->
+      <!-- Expertise Showcase -->
+      <section class="w-100 float-left expertise-showcase padding-top padding-bottom position-relative" id="expertise-showcase">
+         <div class="container">
+            <div class="expertise-inner-con position-relative">
+               <div class="section-title text-center mb-5 wow fadeInUp" data-wow-duration="1s">
+                  <h6 class="text-primary font-weight-bold text-uppercase letter-spacing-2">Our Expertise</h6>
+                  <h2 class="display-4 mb-0">Elevating Digital Experiences<br>
+                     Through Innovative Solutions
+                  </h2>
+               </div>
+               <div class="expertise-grid">
+                  <div class="row">
+                     <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="expertise-item d-flex align-items-start p-4 bg-white shadow-lg rounded-lg transition-all hover-card wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.1s">
+                           <div class="expertise-icon mr-4">
+                              <i class="fas fa-pencil-ruler fa-3x text-primary"></i>
+                           </div>
+                           <div class="expertise-content">
+                              <h4 class="mb-3 text-2xl font-weight-bold">UI/UX Design</h4>
+                              <p class="text-muted">Crafting intuitive and visually stunning interfaces that captivate users and drive engagement through innovative design principles.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="expertise-item d-flex align-items-start p-4 bg-white shadow-lg rounded-lg transition-all hover-card wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.1s">
+                           <div class="expertise-icon mr-4">
+                              <i class="fas fa-laptop-code fa-3x text-success"></i>
+                           </div>
+                           <div class="expertise-content">
+                              <h4 class="mb-3 text-2xl font-weight-bold">Web Design</h4>
+                              <p class="text-muted">Creating responsive, performance-optimized websites that seamlessly blend aesthetics with functionality for an exceptional user experience.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="expertise-item d-flex align-items-start p-4 bg-white shadow-lg rounded-lg transition-all hover-card wow fadeInLeft" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                           <div class="expertise-icon mr-4">
+                              <i class="fas fa-code fa-3x text-info"></i>
+                           </div>
+                           <div class="expertise-content">
+                              <h4 class="mb-3 text-2xl font-weight-bold">Web Development</h4>
+                              <p class="text-muted">Engineering robust, scalable web applications using cutting-edge technologies to future-proof your digital presence and drive business growth.</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-lg-6 col-md-6 mb-4">
+                        <div class="expertise-item d-flex align-items-start p-4 bg-white shadow-lg rounded-lg transition-all hover-card wow fadeInRight" data-wow-duration="0.8s" data-wow-delay="0.2s">
+                           <div class="expertise-icon mr-4">
+                              <i class="fas fa-mobile-alt fa-3x text-warning"></i>
+                           </div>
+                           <div class="expertise-content">
+                              <h4 class="mb-3 text-2xl font-weight-bold">App Development</h4>
+                              <p class="text-muted">Developing bespoke mobile solutions that leverage the latest technologies to deliver transformative user experiences across all devices.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="text-center mt-5">
+                  <a href="services.html" class="view-more-btn">
+                     <span>View More</span>
+                     <div class="liquid"></div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <style>
+         .expertise-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+         }
+         .expertise-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+         }
+         .expertise-item:nth-child(1):hover { border-left-color: #007bff; }
+         .expertise-item:nth-child(2):hover { border-left-color: #28a745; }
+         .expertise-item:nth-child(3):hover { border-left-color: #17a2b8; }
+         .expertise-item:nth-child(4):hover { border-left-color: #ffc107; }
+         .expertise-icon {
+            transition: all 0.3s ease;
+         }
+         .expertise-item:hover .expertise-icon {
+            transform: scale(1.1);
+         }
+         .view-more-btn {
+            position: relative;
+            padding: 15px 30px;
+            display: inline-block;
+            text-decoration: none;
+            font-size: 18px;
+            overflow: hidden;
+            transition: 0.2s;
+            color: #fff;
+            background: #3498db;
+            border-radius: 30px;
+         }
+
+         .view-more-btn:hover {
+            color: #fff;
+            background: #2980b9;
+            box-shadow: 0 0 10px #3498db, 0 0 40px #3498db, 0 0 80px #3498db;
+            transition-delay: 0.1s;
+         }
+
+         .view-more-btn span {
+            position: relative;
+            z-index: 1;
+         }
+
+         .view-more-btn .liquid {
+            position: absolute;
+            top: -80px;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: #4fc3dc;
+            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+            transition: 0.5s;
+         }
+
+         .view-more-btn .liquid::after,
+         .view-more-btn .liquid::before {
+            content: '';
+            width: 200%;
+            height: 200%;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -75%);
+            background: #fff;
+         }
+
+         .view-more-btn .liquid::before {
+            border-radius: 45%;
+            background: rgba(20, 20, 20, 1);
+            animation: animate 5s linear infinite;
+         }
+
+         .view-more-btn .liquid::after {
+            border-radius: 40%;
+            background: rgba(20, 20, 20, 0.5);
+            animation: animate 10s linear infinite;
+         }
+
+         .view-more-btn:hover .liquid {
+            top: -120px;
+         }
+
+         @keyframes animate {
+            0% {
+               transform: translate(-50%, -75%) rotate(0deg);
+            }
+            100% {
+               transform: translate(-50%, -75%) rotate(360deg);
+            }
+         }
+
+    /* ... (keep existing styles) ... */
+
+    /* Common styles for both light and dark modes */
+         .expertise-item {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+         }
+         .expertise-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+         }
+         .expertise-item h4 {
+            font-size: calc(var(--font-size-base) * var(--font-size-multiplier));
+            line-height: 1.2;
+            margin-bottom: 0.5em;
+         }
+
+         .expertise-item p {
+            font-size: calc(var(--font-size-base) * 0.9 * var(--font-size-multiplier));
+            line-height: 1.5;
+         }
+
+         .expertise-item {
+           padding: calc(1rem * var(--font-size-multiplier));
+         }
+
+             /* Dark mode styles */
+         body.dark-mode {
+           background-color: #121212;
+           color: #ffffff;
+         }
+         body.dark-mode .expertise-item {
+          background-color: #1e1e1e !important;
+          color: #ffffff;
+         }
+         body.dark-mode .expertise-item h4 {
+          color: #ffffff;
+         }
+         body.dark-mode .expertise-item p {
+          color: #cccccc;
+         }
+         body.dark-mode .expertise-icon {
+          background-color: transparent;
+         }
+         body.dark-mode .expertise-icon i {
+          color: #ffffff;
+         }
+         body.dark-mode .view-more-btn {
+          background: #1e1e1e;
+          color: #ffffff;
+          border: 2px solid #ffffff;
+         }
+         body.dark-mode .view-more-btn:hover {
+          background: #2c2c2c;
+          box-shadow: 0 0 10px #1e1e1e, 0 0 40px #1e1e1e, 0 0 80px #1e1e1e;
+         }
+
+            /* Light mode styles */
+         body {
+              background-color: #f0f0f0;
+              color: #333333;
+         }
+         .expertise-item {
+           background-color: #ffffff !important;
+           color: #333333;
+           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         }
+         .expertise-item h4 {
+           color: #333333;
+           font-size: 2rem;
+         }
+         .expertise-item p {
+           color: #666666;
+         }
+         .expertise-icon i {
+           color: #333333;
+         }
+         .view-more-btn {
+           background: #ffffff;
+           color: #333333;
+           border: 2px solid #333333;
+         }
+         .view-more-btn:hover {
+           background: #e0e0e0;
+           box-shadow: 0 0 10px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff;
+         }
+
+         /* Existing media queries */
+         @media (max-width: 768px) {
+              .expertise-item h4 {
+                 font-size: 1.3rem; /* Slightly smaller for tablets */
+               }
+         }
+
+         @media (max-width: 576px) {
+              .expertise-item h4 {
+                 font-size: 1.1rem; /* Even smaller for mobile phones */
+               }
+         }
+
+            /* Add new media queries for larger screens */
+         @media (min-width: 992px) {
+               .expertise-item h4 {
+                font-size: 1.7rem; /* Slightly larger for desktops */
+               }
+         }
+
+         @media (min-width: 1200px) {
+              .expertise-item h4 {
+                   font-size: 2rem; /* Largest size for wide screens */
+               }
+         }
+      </style>
+
+      <script>
+         document.addEventListener('DOMContentLoaded', (event) => {
+            const cards = document.querySelectorAll('.expertise-item');
+            
+            cards.forEach(card => {
+               card.addEventListener('mouseenter', () => {
+                  card.style.transform = 'translateY(-10px) scale(1.03)';
+                  card.style.transition = 'all 0.3s ease';
+               });
+               
+               card.addEventListener('mouseleave', () => {
+                  card.style.transform = 'translateY(0) scale(1)';
+               });
+            });
+
+            document.querySelector('.view-more-btn').addEventListener('mousemove', function(e) {
+               const x = e.pageX - this.offsetLeft;
+               const y = e.pageY - this.offsetTop;
+
+               this.style.setProperty('--x', x + 'px');
+               this.style.setProperty('--y', y + 'px');
+            });
+         });
+      </script>
+      <!-- service section -->
+      <!-- skill section -->
+      <section class="w-100 float-left skill-con position-relative" id="about-con">
+         <div class="container-fluid p-0">
+            <div class="skill-inner-con position-relative">
+               <div class="row no-gutters">
+                  <div class="col-lg-6 order-lg-0 order-2">
+                     <div class="skill-left-con text-center wow fadeIn" data-wow-duration="1.5s">
+                        <div class="row service-skill-staff-con m-0">
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-0">
+                              <div class="skill-left-item-con h-100 d-flex flex-column justify-content-center align-items-center">
+                                 <div class="circle-wrap" data-percentage="80" data-color="#4CAF50">
+                                    <div class="circle">
+                                       <div class="mask full">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="mask half">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="inside-circle">
+                                          <div class="service-skill-staff-item-con">
+                                             <div class="service-skill-staff-item-title service-skill-staff-item1-con d-flex align-items-center justify-content-center">
+                                                <h4 class="mb-0 text-center count" data-target="80">0</h4>
+                                                <span class="static-txt2">%</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="service-skill-staff-item-heading mt-3">
+                                    <p class="mb-0 text-uppercase font-weight-bold">Graphic Design</p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-0">
+                              <div class="skill-left-item-con h-100 d-flex flex-column justify-content-center align-items-center">
+                                 <div class="circle-wrap" data-percentage="95" data-color="#2196F3">
+                                    <div class="circle">
+                                       <div class="mask full">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="mask half">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="inside-circle">
+                                          <div class="service-skill-staff-item-con">
+                                             <div class="service-skill-staff-item-title service-skill-staff-item2-con text-center d-flex align-items-center justify-content-center">
+                                                <h4 class="mb-0 text-center count" data-target="95">0</h4>
+                                                <span class="static-txt2">%</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="service-skill-staff-item-heading mt-3">
+                                    <p class="mb-0 text-uppercase font-weight-bold">Web Designing</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row service-skill-staff-con m-0">
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-0">
+                              <div class="skill-left-item-con h-100 d-flex flex-column justify-content-center align-items-center">
+                                 <div class="circle-wrap" data-percentage="85" data-color="#FFC107">
+                                    <div class="circle">
+                                       <div class="mask full">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="mask half">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="inside-circle">
+                                          <div class="service-skill-staff-item-con">
+                                             <div class="service-skill-staff-item-title service-skill-staff-item1-con d-flex align-items-center justify-content-center">
+                                                <h4 class="mb-0 text-center count" data-target="85">0</h4>
+                                                <span class="static-txt2">%</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="service-skill-staff-item-heading mt-3">
+                                    <p class="mb-0 text-uppercase font-weight-bold">Branding Design</p>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-0">
+                              <div class="skill-left-item-con h-100 d-flex flex-column justify-content-center align-items-center">
+                                 <div class="circle-wrap" data-percentage="90" data-color="#E91E63">
+                                    <div class="circle">
+                                       <div class="mask full">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="mask half">
+                                          <div class="fill"></div>
+                                       </div>
+                                       <div class="inside-circle">
+                                          <div class="service-skill-staff-item-con">
+                                             <div class="service-skill-staff-item-title service-skill-staff-item2-con text-center d-flex align-items-center justify-content-center">
+                                                <h4 class="mb-0 text-center count" data-target="90">0</h4>
+                                                <span class="static-txt2">%</span>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="service-skill-staff-item-heading mt-3">
+                                    <p class="mb-0 text-uppercase font-weight-bold">Web Development</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center">
+                     <div class="skill-right-con wow fadeIn" data-wow-duration="1.5s" data-wow-delay="0.5s">
+                        <div class="skill-right-inner p-5">
+                           <h6 class="text-primary font-weight-bold mb-3">OUR SKILLS</h6>
+                           <h2 class="display-4 mb-4">Innovative & Tailored Digital Solutions</h2>
+                           <p class="lead mb-4">At Crael Developers, we specialize in creating bespoke web development solutions that cater to the unique needs of our clients. Our team of experts is dedicated to delivering high-quality, scalable, and efficient digital experiences.</p>
+                           <p class="mb-5">We pride ourselves on our ability to transform ideas into reality, ensuring that every project we undertake is executed with precision and excellence. Our commitment to innovation and cutting-edge technology sets us apart in the digital landscape.</p>
+                           <a href="about.html" class="btn btn-primary btn-lg">More About Us </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <style>
+         .circle-wrap {
+            width: 150px;
+            height: 150px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+         }
+         .circle-wrap:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+         }
+         .circle-wrap .circle .mask,
+         .circle-wrap .circle .fill {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            border-radius: 50%;
+            transition: all 1s;
+         }
+         .circle-wrap .circle .mask {
+            clip: rect(0px, 150px, 150px, 75px);
+         }
+         .circle-wrap .inside-circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #fff;
+            line-height: 130px;
+            text-align: center;
+            margin-top: 10px;
+            margin-left: 10px;
+            color: #333;
+            position: absolute;
+            z-index: 100;
+            font-weight: 700;
+            font-size: 2em;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+         }
+         .mask .fill {
+            clip: rect(0px, 75px, 150px, 0px);
+            background-color: #4CAF50;
+         }
+         .circle-wrap::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border: 3px solid #ddd;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            box-sizing: border-box;
+         }
+         .skill-left-item-con {
+            transition: all 0.3s ease;
+         }
+         .skill-left-item-con:hover {
+            transform: translateY(-10px);
+         }
+         .count {
+            font-size: 2.5rem;
+            font-weight: bold;
+         }
+         .static-txt2 {
+            font-size: 1.5rem;
+            margin-left: 2px;
+         }
+         .skill-right-inner {
+            position: relative;
+            overflow: hidden;
+         }
+         .skill-right-inner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+               to bottom right,
+               rgba(255, 255, 255, 0.3) 0%,
+               rgba(255, 255, 255, 0.1) 50%,
+               transparent 100%
+            );
+            transform: rotate(45deg);
+            transition: all 0.5s;
+         }
+         .skill-right-inner:hover::before {
+            top: -100%;
+            left: -100%;
+         }
+         .btn-primary {
+            position: relative;
+            overflow: hidden;
+         }
+         .btn-primary::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+         }
+         @keyframes ripple {
+            0% {
+               transform: scale(0, 0);
+               opacity: 1;
+            }
+            20% {
+               transform: scale(25, 25);
+               opacity: 1;
+            }
+            100% {
+               opacity: 0;
+               transform: scale(40, 40);
+            }
+         }
+         .btn-primary:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+         }
+      </style>
+      <script>
+         document.addEventListener('DOMContentLoaded', (event) => {
+            const counters = document.querySelectorAll('.count');
+            const speed = 200;
+
+            counters.forEach(counter => {
+               const updateCount = () => {
+                  const target = +counter.getAttribute('data-target');
+                  const count = +counter.innerText;
+                  const inc = target / speed;
+
+                  if (count < target) {
+                     counter.innerText = Math.ceil(count + inc);
+                     setTimeout(updateCount, 1);
+                  } else {
+                     counter.innerText = target;
+                  }
+               };
+
+               updateCount();
+            });
+
+            const circleWraps = document.querySelectorAll('.circle-wrap');
+            
+            circleWraps.forEach(wrap => {
+               const percent = wrap.getAttribute('data-percentage');
+               const color = wrap.getAttribute('data-color');
+               const degrees = percent * 3.6;
+               const maskFull = wrap.querySelector('.mask.full');
+               const maskHalf = wrap.querySelector('.mask.half');
+               const fill = wrap.querySelectorAll('.fill');
+
+               setTimeout(() => {
+                  if (degrees > 180) {
+                     maskFull.style.transform = `rotate(180deg)`;
+                     maskHalf.style.transform = `rotate(${degrees}deg)`;
+                  } else {
+                     maskFull.style.transform = `rotate(${degrees}deg)`;
+                  }
+
+                  fill.forEach(f => {
+                     f.style.backgroundColor = color;
+                  });
+
+                  wrap.querySelector('.inside-circle').style.color = color;
+               }, 500);
+            });
+
+            const skillItems = document.querySelectorAll('.skill-left-item-con');
+            skillItems.forEach(item => {
+               item.addEventListener('mouseenter', () => {
+                  item.style.transform = 'translateY(-10px) scale(1.05)';
+               });
+               item.addEventListener('mouseleave', () => {
+                  item.style.transform = 'translateY(0) scale(1)';
+               });
+            });
+
+            const btn = document.querySelector('.btn-primary');
+            btn.addEventListener('click', function(e) {
+               let x = e.clientX - e.target.offsetLeft;
+               let y = e.clientY - e.target.offsetTop;
+               
+               let ripples = document.createElement('span');
+               ripples.style.left = x + 'px';
+               ripples.style.top = y + 'px';
+               this.appendChild(ripples);
+
+               setTimeout(() => {
+                  ripples.remove()
+               },1000);
+            });
+         });
+      </script>
+      <!-- skill section -->
+      <!-- tastimonials section -->
+      <!-- tastimonials section -->
+      <section class="w-100 float-left padding-top padding-bottom tastimonials-con position-relative text-lg-left text-center" id="testimonials">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-5">
+                  <div class="tastimonials-left-con wow slideInLeft" >
+                     <figure class="mb-0">
+                        <img src="assets/image/tastimonials-img.png" alt="tastimonials-img" class="img-fluid">
+                     </figure>
+                  </div>
+               </div>
+               <div class="col-lg-7">
+                  <div id="carouselExampleControls" class="carousel slide wow slideInRight" data-ride="carousel" >
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="testimonials-content">
+                              <h6>Testimonials</h6>
+                              <h2>Client Success Stories</h2>
+                              <figure class="mb-0">
+                                 <img src="assets/image/comma-icon.png" alt="comma-icon" class="img-fluid">
+                              </figure>
+                              <div class="testimonials-inner-content">
+                                 <p>Crael Developers transformed our online presence with their exceptional web development skills. Their team's attention to detail and innovative solutions helped us achieve a user-friendly, responsive website that perfectly represents our brand. We couldn't be happier with the results!</p>
+                                 <span class="d-block auther-name">Sarah Johnson</span>
+                                 <span class="d-block">CEO of TechInnovate</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="testimonials-content">
+                              <h6>Testimonials</h6>
+                              <h2>Client Success Stories</h2>
+                              <figure class="mb-0">
+                                 <img src="assets/image/comma-icon.png" alt="comma-icon" class="img-fluid">
+                              </figure>
+                              <div class="testimonials-inner-content">
+                                 <p>Working with Crael Developers was a game-changer for our e-commerce platform. Their expertise in creating seamless, high-performance websites significantly boosted our online sales. The team's professionalism and commitment to delivering on time exceeded our expectations.</p>
+                                 <span class="d-block auther-name">Michael Chen</span>
+                                 <span class="d-block">Founder of GlobalMart</span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="testimonials-content">
+                              <h6>Testimonials</h6>
+                              <h2>Client Success Stories</h2>
+                              <figure class="mb-0">
+                                 <img src="assets/image/comma-icon.png" alt="comma-icon" class="img-fluid">
+                              </figure>
+                              <div class="testimonials-inner-content">
+                                 <p>Crael Developers' ability to understand our unique requirements and translate them into a stunning, functional website was impressive. Their team's technical prowess, coupled with their creative approach, resulted in a digital solution that has significantly enhanced our customer engagement and brand visibility.</p>
+                                 <span class="d-block auther-name">Emily Rodriguez</span>
+                                 <span class="d-block">Marketing Director at CreativeVision</span>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                     <i class="fas fa-arrow-left d-flex align-items-center justify-content-center"></i>
+                     <span class="sr-only">Previous</span>
+                     </a>
+                     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                     <i class="fas fa-arrow-right d-flex align-items-center justify-content-center"></i>
+                     <span class="sr-only">Next</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- tastimonials section -->
+   
+      <!-- form section -->
+      <section class="w-100 float-left form-main-con padding-top padding-bottom" id="Contact">
+         <div class="container">
+            <div class="form-main-inner-con position-relative">
+               <div class="generic-title text-center">
+                  <h6>Get in Touch</h6>
+                  <h2 class="mb-0">Any Questions? Feel Free<br>
+                     to Contact
+                  </h2>
+               </div>
+               <div class="row">
+                  <div class="col-lg-4 order-lg-0 order-2">
+                     <div class="contact-information position-relative wow slideInLeft" >
+                        <ul class="list-unstyled">
+                           <li>
+                              <figure class="mb-0 d-flex align-items-center justify-content-center">
+                                 <i class="fas fa-envelope fa-2x" style="color: #007bff; background: transparent;"></i>
+                              </figure>
+                              <div class="contact-information-content">
+                                 <h5>Email:</h5>
+                                 <p class="mb-0"><a href="mailto:craeldevelopers@gmail.com" style="color: #007bff; text-decoration: none;">craeldevelopers@gmail.com</a></p>
+                              </div>
+                           </li>
+                           <li class="mb-0">
+                              <figure class="mb-0 d-flex align-items-center justify-content-center">
+                                 <i class="fas fa-phone-alt fa-2x" style="color: #28a745; background: transparent;"></i>
+                              </figure>
+                              <div class="contact-information-content">
+                                 <h5>Phone:</h5>
+                                 <p class="mb-0"><a href="tel:+61383766284" style="color: #28a745; text-decoration: none;">+61 3 8376 6284</a></p>
+                              </div>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+                  <div class="col-lg-8">
+                      
+                     <div id="form_result">
+                
+                     </div>
+                     
+                    <form id= "contactpage" method="POST" class="contact-form wow slideInRight text-lg-left text-center" >
+                       <div class="row">
+                          <div class="col-lg-6 col-md-6">
+                             <div class="form-group mb-0">    
+                                <input type="text"  placeholder="Name"      name="name" id="name" autocomplete="off" required> 
+                             </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6">
+                             <div class="form-group mb-0">
+                                <input type="email" id="email" name="email" placeholder="Email" autocomplete="off" required>
+                                <small class="form-text text-muted"></small>
+                             </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6">
+                             <div class="form-group mb-0">    
+                                <input type="tel"  placeholder="Phone" name="phone" id="phone" required> 
+                             </div>
+                          </div>
+                          <div class="col-lg-6 col-md-6">
+                             <div class="form-group mb-0">    
+                                <input type="text" name="subject"  placeholder="Subject" id="subject"> 
+                             </div>
+                          </div>
+                       </div>
+                       <div class="row">
+                          <div class="col-lg-12">
+                             <div class=" form-group mb-0">    
+                              <textarea placeholder="Message" rows="3" name="message" id="message" required></textarea>
+                             </div>
+                          </div>
+                       </div>
+                       <button type="submit" id="submit" class="appointment-btn">Submit</button>
+                    </form>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- form section -->
+      <!-- weight footer section -->
+      <div class="w-100 float-left weight-footer-con position-relative">
+         <div class="container">
+            <div class="weight-footer-content text-center wow fadeInUp" >
+               <figure class="">
+                  <img src="assets/image/footer-logo.png" alt="footer-logo" class="img-fluid">
+               </figure>
+               <div class="footer-navbar">
+                  <ul class="list-unstyled">
+                     <li class="d-inline-block border-left-0 pl-0"><a href="#home">Home</a></li>
+                     <li class="d-inline-block"><a href="about.html">About</a></li>
+                     <li class="d-inline-block"><a href="services.html">Services</a></li>
+                     <li class="d-inline-block"><a href="#testimonials">Blog</a></li>
+                     <li class="d-inline-block pr-0"><a href="contact.html">Contact</a></li>
+                  </ul>
+               </div>
+               <div class="footer-social-icon">
+                  <ul class="mb-0">
+                     <li class="d-inline-block">
+                        <a href="https://www.x.com/sawyergathoya/"><i class="fab fa-twitter d-flex align-items-center justify-content-center"></i></a>
+                     </li>
+                     <li class="d-inline-block">
+                        <a href="https://www.instagram.com/crael.developers/"><i class="fab fa-instagram d-flex align-items-center justify-content-center"></i></a>
+                     </li>
+                     <li class="d-inline-block">
+                        <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in d-flex align-items-center justify-content-center"></i></a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+            <div class="copy-right-content text-center">
+               <p class="mb-0">Copyright 2022 Crael Developers | All Rights Reserved.</p>
+            </div>
+         </div>
+      </div>
+      <a id="button"></a>
+      <div id="modalWPWAF" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img1.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Application UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalWPWAF-icon" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img1.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Application UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio2" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img2.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Furni furniture UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio2-icon" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img2.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Furni furniture UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio3" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img3.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Mobile UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio3-icon" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img3.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Mobile UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio4" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img4.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Businesscard UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio4-icon" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img4.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Businesscard UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio5" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img5.png" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Real estate UI Design</h4>
+                  <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="modalporfolio5-icon" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/portfolio-model-img5.jfif" alt="portfolio-model-img1" class="img-fluid">
+                  </figure>
+                  <h4>Real estate UI Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release .</p>
+                  <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="Ui-Design" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/ui-ux-model-img.jpg" alt="ui-ux-model-img" class="img-fluid">
+                  </figure>
+                  <h4>Ui/Ux Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+                     <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="web-design" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/web-designer-model-img.jpg" alt="web-designer-model-img" class="img-fluid">
+                  </figure>
+                  <h4>Web Design</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+                     <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="web-development" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/web-development-model-img.jpg" alt="web-development-model-img" class="img-fluid">
+                  </figure>
+                  <h4>Web Development</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+                     <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="app-development" class="modal fade" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body service-model-content">
+                  <figure class="mb-0">
+                     <img src="assets/image/App-development-model-img.JPG" alt="App-development-model-img" class="img-fluid">
+                  </figure>
+                  <h4>App Development</h4>
+                  <p class="mb-md-4 mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+                     <ul class="list-unstyled model-list mb-md-3 mb-2">
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                     <li><i class="fas fa-check-circle"></i> Lorem Ipsum is simply dummy text of the printing and typesetting industry</li>
+                  </ul>
+                  <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>  
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="blog-model-1" class="modal fade blog-model-con" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body">
+                  <div class="blog-box-item mb-0">
+                     <div class="blog-img">
+                        <figure class="mb-0">
+                           <img src="assets/image/blog-model-img1.png" alt="blog-img" class="img-fluid">
+                        </figure>
+                     </div>
+                     <div class="blog-content pl-0 pr-0">
+                        <div class="blog-auteher-title">
+                           <span>By Elina Parker</span>
+                           <span class="float-lg-right">Mar 8, 2022</span>
+                        </div>
+                        <h4>Quis autem vea eum 
+                           iure reprehenderit
+                        </h4>
+                        <div class="footer-social-icon mb-0">
+                           <ul>
+                              <li class="d-inline-block">
+                                 <a href="https://www.x.com/"><i class="fab fa-x d-flex align-items-center justify-content-center"></i></a>
+                              </li>
+                              <li class="d-inline-block">
+                                 <a href="https://www.instagram.com/"><i class="fab fa-instagram d-flex align-items-center justify-content-center"></i></a>
+                              </li>
+                              <li class="d-inline-block">
+                                 <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in d-flex align-items-center justify-content-center"></i></a>
+                              </li>
+                           </ul>
+                        </div>
+                        <p class="mb-md-4 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor eros a tellus auctor, nec suscipit nunc dignissim. Ut suscipit gravida augue sed elementum. Sed sed luctus nisl. Donec scelerisque nisi in sodales mattis. Vestibulum suscipit odio ac enim blandit sollicitudin. Aliquam ultrices sem quis urna placerat interdum. Etiam rutrum, quam sagittis tristique mollis, libero arcu scelerisque erat, eget tincidunt eros diam quis nunc.</p>
+                        <h4 class="comment-title">LEAVE A COMMENT</h4>
+                        <form id="contactpage" class="contact-form blog-model-form">
+                        <div class="row">
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">    
+                                 <input type="text" placeholder="Name" name="name" id="name" required> 
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">
+                                 <input type="email" placeholder="Email" name="email" id="email" required>
+                                 <small class="form-text text-muted">Please fill in all required fields. Missing: email</small>
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">    
+                                 <input type="tel" placeholder="Phone" name="phone" id="phone" required> 
+                              </div>
+                           </div>
+                           <div class="col-lg-6 col-md-6">
+                              <div class="form-group mb-0">    
+                                 <input type="text" placeholder="Subject" name="subject" id="subject"> 
+                              </div>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="col-lg-12">
+                              <div class="form-group mb-0">    
+                                 <textarea placeholder="Message" rows="3" name="comments" id="message" required></textarea>
+                              </div>
+                           </div>
+                        </div>
+                        <button type="submit" id="submit" class="appointment-btn">Submit</button>
+                        <div id="form_result"></div>
+                       </form>
+                     
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="blog-model-3" class="modal fade blog-model-con" tabindex="-1" style="display: none;" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" ><i class="far fa-times"></i></span></button>
+               </div>
+               <div class="modal-body">
+                  <div class="blog-box-item mb-0">
+                     <div class="blog-img">
+                        <figure class="mb-0">
+                           <img src="assets/image/blog-model-img1.png" alt="blog-img" class="img-fluid">
+                        </figure>
+                     </div>
+                     <div class="blog-content pl-0 pr-0">
+                        <div class="blog-auteher-title">
+                           <span>By Elina Parker</span>
+                           <span class="float-lg-right">Mar 10, 2022</span>
+                        </div>
+                        <h4>Soluta nobis ose aligen
+                           optio cumue
+                        </h4>
+                        <div class="footer-social-icon mb-0">
+                           <ul>
+                              <li class="d-inline-block">
+                                 <a href="https://www.x.com/"><i class="fab fa-x d-flex align-items-center justify-content-center"></i></a>
+                              </li>
+                              <li class="d-inline-block">
+                                 <a href="https://www.instagram.com/"><i class="fab fa-instagram d-flex align-items-center justify-content-center"></i></a>
+                              </li>
+                              <li class="d-inline-block">
+                                 <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in d-flex align-items-center justify-content-center"></i></a>
+                              </li>
+                           </ul>
+                        </div>
+                        <p class="mb-md-4 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tempor eros a tellus auctor, nec suscipit nunc dignissim. Ut suscipit gravida augue sed elementum. Sed sed luctus nisl. Donec scelerisque nisi in sodales mattis. Vestibulum suscipit odio ac enim blandit sollicitudin. Aliquam ultrices sem quis urna placerat interdum. Etiam rutrum, quam sagittis tristique mollis, libero arcu scelerisque erat, eget tincidunt eros diam quis nunc.</p>
+                        <h4 class="comment-title">LEAVE A COMMENT</h4>
+                        <form class="contact-form blog-model-form">
+                           <div class="row">
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="form-group mb-0">    
+                                    <input type="text" placeholder="Name" name="name"> 
+                                 </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="form-group mb-0">
+                                    <input type="email" placeholder="Email">
+                                    <small class="form-text text-muted"></small>
+                                 </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="form-group mb-0">    
+                                    <input type="tel" placeholder="Phone"> 
+                                 </div>
+                              </div>
+                              <div class="col-lg-6 col-md-6">
+                                 <div class="form-group mb-0">    
+                                    <input type="text" placeholder="Subject"> 
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="row">
+                              <div class="col-lg-12">
+                                 <div class=" form-group mb-0">    
+                                    <textarea placeholder="Message" rows="3" name="comments"></textarea>
+                                 </div>
+                              </div>
+                           </div>
+                           <button type="submit" class="appointment-btn">Submit</button>
+                        </form>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- weight footer section -->
+      <script src="assets/js/wow.js"></script>
+      <script>
+         new WOW().init();
+      </script>
+      <script src="assets/js/jquery-3.6.0.min.js"> </script>
+      <script src=" https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.js"></script>
+      <script src="assets/js/popper.min.js"> </script>
+      <script src="assets/js/bootstrap.min.js"> </script>
+      <script src="assets/js/custom-script.js"> </script>
+      <script src="assets/js/contact-form.js"></script>
+      <script>
+         
+         // Add active class to the current button (highlight it)
+         var btnContainer = document.getElementById("myBtnContainer");
+         var btns = btnContainer.getElementsByClassName("btn");
+         for (var i = 0; i < btns.length; i++) {
+         btns[i].addEventListener("click", function(){
+         var current = document.getElementsByClassName("active");
+         current[0].className = current[0].className.replace(" active", "");
+         this.className += " active";
+         });
+         }
+      </script>
+      <script>
+         var btn = $('#button');
+         
+         $(window).scroll(function() {
+         if ($(window).scrollTop() > 300) {
+         btn.addClass('show');
+         } else {
+         btn.removeClass('show');
+         }
+         });
+         
+         btn.on('click', function(e) {
+         e.preventDefault();
+         $('html, body').animate({scrollTop:0}, '300');
+         });
+         
+      </script>
+      <script>
+         $(window).scroll(function(){
+         
+         if ($(window).scrollTop() >= 113) {
+         
+         $('header').addClass('fixed-header');
+         $('.banner-main-con').addClass('banner-main-con2');
+         
+         }
+         
+         else {
+         
+         $('header').removeClass('fixed-header');
+         $('.banner-main-con').removeClass('banner-main-con2');
+         
+         }
+         
+         });
+         
+      </script>
+   <script>
+document.querySelectorAll('.nav-item a').forEach(function(link, index){
+
+link.addEventListener('click', function() {
+
+  if(this.classList.contains('is-active')) {
+
+    this.classList.remove('is-active');
+
+  } else {
+
+    const activeLink = document.querySelector('a.is-active'); // **
+
+    if (activeLink) {                                         // **
+
+        activeLink.classList.remove('is-active');             // **
+
+    }                                                         // **
+
+    this.classList.add('is-active');
+
+  }
+
+});
+
+});
+
+document.querySelectorAll('#myBtnContainer button').forEach(function(link, index){
+
+link.addEventListener('click', function() {
+
+  if(this.classList.contains('active_button')) {
+
+    this.classList.remove('active_button');
+
+  } else {
+
+    const activeLink = document.querySelector('#myBtnContainer button.active_button'); // **
+
+    if (activeLink) {                                         // **
+
+        activeLink.classList.remove('active_button');             // **
+
+    }                                                         // **
+
+    this.classList.add('active_button');
+
+  }
+
+});
+
+});
+   </script>
+     <script>
+      function downloadImage() {
+        source = 'assets/image/cv-img.png';
+      const fileName = 'test-image.png';
+      var el = document.createElement("a");
+      el.setAttribute("href", source);
+      el.setAttribute("download", fileName);
+      document.body.appendChild(el);
+      el.click();
+      el.remove();
+      }
+    </script>
+   </body>
+</html>
